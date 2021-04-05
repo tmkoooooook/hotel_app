@@ -1,0 +1,79 @@
+<%= render "shared/error", obj:current_user %>
+<div class="container-field user-profile">
+  <div class="row">
+    <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none">
+      <ul>
+        <li><%= link_to "アカウント", users_account_path %></li>
+        <li class="active"><%= link_to "プロフィール", profile_edit_path %></li>
+      </ul>
+    </div>
+    <div class="col-lg-2 user-nav user-nav-mobile d-lg-none">
+      <ul>
+        <li><%= link_to "アカウント", users_account_path %></li>
+        <li class="active"><%= link_to "プロフィール", profile_edit_path %></li>
+      </ul>
+    </div>
+    <div class="col-lg-10 user-edit">
+      <div class="user-edit-box">
+        <div class="view-content">
+          <div class="row">
+            <h5>プロフィール</h5>
+          </div>
+        </div>
+        <div class="view-content">
+          <div class="row">
+            <% if current_user.image_icon? %>
+              <%= image_tag current_user.image_icon.url, class: "image-icon" %>
+            <% else %>
+              <%= image_tag "/assets/default.jpg", class: "image-icon" %>
+            <% end %>
+          </div>
+        </div>
+        <%= form_with model: current_user, url: {action: 'profile_update'} do |f| %>
+          <div class="view-content">
+            <div class="row">
+              <%= f.label :image_icon, "アイコン画像", class: "col-md-3" %>
+              <%= f.file_field :image_icon, class: "col-md-6" %>
+            </div>
+          </div>
+          <div class="view-content">
+            <div class="row">
+              <%= f.label :name, "名前", class: "col-md-3" %>
+              <%= f.text_field :name, class: "col-md-9 form-controll" %>
+            </div>
+          </div>
+          <div class="view-content">
+            <div class="row">
+              <%= f.label :intoroduction, "自己紹介", class: "col-md-3" %>
+              <%= f.text_area :introduction, class: "col-md-9 form-controll" %>
+            </div>
+          </div>
+          <div class="view-content">
+            <div class="row">
+              <%= f.submit "更新", class: "form-controll col-md-2 btn btn-prymary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="">
+
+  </div>
+
+    <div class="">
+
+    </div>
+    <div class="">
+
+    </div>
+    <div class="">
+
+    </div>
+    <div class="">
+
+    </div>
+
+</div>

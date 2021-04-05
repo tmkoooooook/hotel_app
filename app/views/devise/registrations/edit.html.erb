@@ -1,0 +1,50 @@
+<div class="container devise">
+  <div class="devise-box">
+    <h2>アカウント編集</h2>
+    <div class="devise-form">
+      <%= form_for(resource, as: resource_name, url: update_user_registration_path, html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field form-row">
+          <div class="form-group">
+          <%= f.label :name, "名前" %>
+          <%= f.text_field :name,  autocomplete: "name", class: "form-controll" %>
+          </div>
+        </div>
+        <div class="field form-row">
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-controll" %>
+          </div>
+        </div>
+        <div class="field form-row">
+          <div class="form-group">
+          <%= f.label :password, "変更後パスワード（変更する場合のみ入力）" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-controll" %>
+          </div>
+        </div>
+        <div class="field form-row">
+          <div class="form-group">
+          <%= f.label :password_confirmation, "パスワード確認用（変更する場合のみ入力）" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-controll" %>
+          </div>
+        </div>
+        <div class="field form-row">
+          <div class="form-group">
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力", class: "form-controll" %>
+          </div>
+        </div>
+        <div class="actions ml-15">
+          <%= f.submit "更新", class: "form-controll btn btn-primary" %>
+        </div>
+      <% end %>
+      <div class=" ml-15">
+      <%= link_to "戻る", users_account_path, class: "form-controll btn btn-grey" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>

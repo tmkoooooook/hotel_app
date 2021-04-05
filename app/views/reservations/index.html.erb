@@ -1,0 +1,26 @@
+<div class="container-field room-posts">
+  <h4>予約済みルーム一覧</h4>
+  <table>
+    <tr class="header-row">
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>合計料金</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>予約確定日時</th>
+    </tr>
+    <% @room.zip(@reservation).each do |room, rsv| %>
+      <tr>
+        <td><%= image_tag room.room_image.url, class: "posts-image"%></td>
+        <td class="posts-name"><%= link_to room.room_name,rsv %></td>
+        <td class="posts-intro"><%= room.room_introduction %></td>
+        <td class="posts-price"><%= rsv.total %></td>
+        <td><%= rsv.start_date.to_s(:datetime_jp) %></td>
+        <td><%= rsv.end_date.to_s(:datetime_jp) %></td>
+        <td><%= rsv.created_at.to_s(:datetime_jp) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>

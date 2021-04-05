@@ -1,0 +1,32 @@
+<div class="cotainer-field room-posts">
+  <h4>登録済みルーム一覧</h4>
+  <table>
+    <thead>
+      <tr class="header-row">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @room.each do |room| %>
+        <tr>
+          <td class="">
+            <% if room.room_image? %>
+              <%= image_tag room.room_image.url, class: "posts-image" %>
+            <% else %>
+              <%= image_tag "/assets/default.jpg", class: "posts-image" %>
+            <% end %>
+          </td>
+          <td class="posts-name"><%= link_to room.room_name, room %></td>
+          <td class="posts-intro"><%= room.room_introduction %></td>
+          <td class="posts-price">¥<%= room.room_money %></td>
+          <td><%= room.created_at.to_s(:datetime_jp) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+</div>
