@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    attributes:
+      reservation:
+        end_date: 終了日
+        start_date: 開始日
+        person_num: 人数
+      room:
+        room_name: ルーム名
+        room_money: 料金
+        room-introduction: ルーム紹介
+        room_address: 住所
+        room_image: ルーム画像
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+        introduction: 自己紹介
+        name: 名前

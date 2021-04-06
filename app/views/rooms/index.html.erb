@@ -1,0 +1,53 @@
+<div class="top">
+  <div class="top-main">
+    <div class="container">
+      <div class="row col-lg-6">
+        <div class="top-form">
+          <div class="form-area">
+            <p>Potepan Shareでまだ体験したことのない旅をしよう</p>
+            <%= search_form_for @q ,url: search_rooms_path do |f| %>
+            <div class="search-area">
+              <%= f.label "エリア" %>
+              <%= f.search_field :room_address_cont, placeholder: "東京", class: "form-controll" %>
+            </div>
+            <div class="">
+              <%= f.submit "探す",class: "form-controll btn btn-primary" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+      <div class="panel-area">
+        <h1 class="section-title">おすすめのエリア</h1>
+        <div class="row">
+          <div class="panel-item col-lg-3 col-6">
+            <span>東京</span>
+            <%= link_to "http://[::1]:3000/rooms/search?q%5Broom_address_cont%5D=%E6%9D%B1%E4%BA%AC&commit=%E6%8E%A2%E3%81%99" do %>
+              <%= image_tag "img_tokyo.jpg" %>
+            <% end %>
+          </div>
+          <div class="panel-item col-lg-3 col-6">
+            <span>大阪</span>
+            <%= link_to "http://[::1]:3000/rooms/search?q%5Broom_address_cont%5D=%E5%A4%A7%E9%98%AA&commit=%E6%8E%A2%E3%81%99" do %>
+              <%= image_tag "img_osaka.jpg" %>
+            <% end %>
+          </div>
+          <div class="panel-item col-lg-3 col-6">
+            <span>京都</span>
+            <%= link_to "http://[::1]:3000/rooms/search?q%5Broom_address_cont%5D=%E4%BA%AC%E9%83%BD&commit=%E6%8E%A2%E3%81%99" do %>
+              <%= image_tag "img_kyoto.jpg" %>
+            <% end %>
+          </div>
+          <div class="panel-item col-lg-3 col-6">
+            <span>札幌</span>
+            <%= link_to "http://[::1]:3000/rooms/search?q%5Broom_address_cont%5D=%E6%9C%AD%E5%B9%8C&commit=%E6%8E%A2%E3%81%99" do %>
+              <%= image_tag "img_sapporo.jpg" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

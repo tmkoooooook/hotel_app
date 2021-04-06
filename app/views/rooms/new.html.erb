@@ -1,0 +1,61 @@
+<%= render "shared/error", obj:@room %>
+<div class="container-field room-new">
+  <div class="row">
+    <div class="col-lg-2 room-nav room-nav-pc d-lg-block d-none">
+      <ul>
+        <li class="active"><%= link_to "基本情報", new_room_path %></li>
+      </ul>
+    </div>
+    <div class="col-lg-2 room-nav room-nav-mobile d-lg-none">
+      <ul>
+        <li class="active"><%= link_to "基本情報", new_room_path %></li>
+      </ul>
+    </div>
+    <div class="col-lg-10 room-new-info">
+      <div class="info-box">
+        <h5>ルーム情報登録</h5>
+        <%= form_with model: @room do |f| %>
+          <div class="info-content">
+            <div class="row">
+            <%= f.label :room_name, "ルーム名", class: "col-md-3" %>
+            <%= f.text_field :room_name, class: "form-controll col-md-9" %>
+            </div>
+          </div>
+          <div class="info-content">
+            <div class="row">
+            <%= f.label :room_introduction, "一言紹介", class: "col-md-3" %>
+            <%= f.text_area :room_introduction, class: "form-controll col-md-9" %>
+            </div>
+          </div>
+          <div class="info-content">
+            <div class="row">
+              <%= f.label :room_money, "料金", class: "col-md-3" %>
+              <%= f.text_field :room_money, class: "form-controll col-md-9" %>
+            </div>
+          </div>
+          <div class="info-content">
+            <div class="row">
+            <%= f.label :room_address, "住所", class: "col-md-3" %>
+            <%= f.text_field :room_address, class: "form-controll col-md-9" %>
+            </div>
+          </div>
+          <div class="info-content">
+            <div class="row">
+            <%= f.label :room_image, "ルーム画像", class: "col-md-3" %>
+            <%= f.file_field :room_image, class: "col-md-9" %>
+            </div>
+          </div>
+          <div class="info-content">
+            <div class="row">
+              <%= f.submit "登録", class: "form-controll col-md-2 btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to "登録済みルーム一覧に戻る", rooms_posts_path, class: "back-page" %>
+        <%= link_to "TOPに戻る", root_path, class: "back-page" %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
